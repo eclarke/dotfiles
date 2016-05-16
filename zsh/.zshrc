@@ -15,6 +15,8 @@ fi
 # Customize to your needs...
 export EDITOR=emacs
 
+export PATH=$HOME/.local/bin:$PATH
+
 # Miniconda stuff
 export PATH=$HOME/miniconda3/bin:$PATH
 
@@ -27,11 +29,4 @@ function activate_pipits () {
     export PIPITS_UNITE_RETRAINED_DIR=$HOME/pipits/refdb/UNITE_retrained
     export PIPITS_RDP_CLASSIFIER_JAR=$HOME/pipits/classifier.jar
 }
-
-# Perl stuff
-PATH="/media/8TB_PLAYGROUND/home/ecl/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/media/8TB_PLAYGROUND/home/ecl/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/media/8TB_PLAYGROUND/home/ecl/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/media/8TB_PLAYGROUND/home/ecl/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/media/8TB_PLAYGROUND/home/ecl/perl5"; export PERL_MM_OPT;
 
