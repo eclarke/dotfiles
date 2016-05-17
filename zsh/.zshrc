@@ -15,6 +15,8 @@ fi
 # Customize to your needs...
 export EDITOR=emacs
 
+export PATH=$HOME/.local/bin:$PATH
+
 # Miniconda stuff
 export PATH=$HOME/miniconda3/bin:$PATH
 
