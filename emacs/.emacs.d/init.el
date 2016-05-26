@@ -23,9 +23,9 @@
 (global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 
 ;; Ido stuff
-(ido-mode t)
-(setq ido-enable-flex-matching t
-      ido-use-virtual-buffers)
+;; (ido-mode t)
+;; (setq ido-enable-flex-matching t
+;;       ido-use-virtual-buffers)
 
 ;; Temp files --> gone
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
@@ -37,12 +37,31 @@
 ;;-----------------------------------------------------------------------;;
 (require 'package)
 ;; Add melpa repository to archives
+;; (add-to-list 'package-archives
+;; 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
-	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (when (< emacs-major-version 24)
   (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
 ;; Initialize packages
 (package-initialize)
+;; Common packages
+(defvar my/packages
+  '(company snakemake-mode))
+
+;; ----- Install packages from my/packages -----
+(require 'cl-lib)
+
+(defun my/install-packages ()
+  "Ensure the packages I use are installed. See `my/packages'."
+  (interactive)
+  (let ((missing-packages (cl-remove-if #'package-installed-p my/packages)))
+    (when missing-packages
+      (message "Installing %d missing package(s)" (length missing-packages))
+      (package-refresh-contents)
+      (mapc #'package-install missing-packages))))
+
+(my/install-packages)
 
 ;;-----------------------------------------------------------------------;;
 ;;  el-get
@@ -107,7 +126,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wombat))))
+ '(custom-enabled-themes (quote (misterioso)))
+ '(package-selected-packages (quote (magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
