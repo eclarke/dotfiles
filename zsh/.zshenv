@@ -12,3 +12,4 @@ fi
 
 export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
 export STOW_DIR=$HOME/dotfiles
+export PATH=$HOME/.cargo/bin:$PATH

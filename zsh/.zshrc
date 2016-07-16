@@ -12,7 +12,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-export ALTERNATE_EDITOR=emacs EDITOR=emacsclient VISUAL=emacsclient
+export PATH=/Users/ecl/miniconda3/bin:$PATH
+export HOMEBREW_GITHUB_API_TOKEN="1860c29f65532488a539ba1e79a59bd725c1bacc"
+export RUST_SRC_PATH=$HOME/.rust/src
 
-alias emacs='emacsclient -c -a ""'
+alias emacs="$HOME/Applications/Emacs.app/Contents/MacOS/Emacs"
