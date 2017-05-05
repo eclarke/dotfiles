@@ -12,9 +12,11 @@
 (setq inhibit-startup-message t)
 
 ;; Unnecessary UI --> gone
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
+(when (display-graphic-p)
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)
+    (menu-bar-mode -1))
+
 ;; No tabs
 (setq tab-width 2
       indent-tabs-mode nil)
@@ -76,16 +78,16 @@
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
-(require 'py-autopep8)
-(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
-(elpy-use-ipython)
+;; (require 'py-autopep8)
+;; (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
+;; (elpy-use-ipython)
 
 
 ;;-----------------------------------------------------------------------;;
 ;;  Rust development
 ;;-----------------------------------------------------------------------;;
-(setq racer-cmd "/usr/local/bin/racer")
-(setq racer-rust-src-path "/Users/ecl/.rust/src")
+(setq racer-cmd "/Users/ecl/.cargo/bin/racer")
+(setq racer-rust-src-path "/Users/ecl/.multirust/toolchains/nightly-x86_64-apple-darwin/lib/rustlib/src/rust/src")
 
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
 
@@ -138,7 +140,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (cargo flycheck flycheck-mypy flycheck-rust racer rust-mode rustfmt gotham-theme leuven-theme zenburn-theme snakemake-mode material-theme markdown-mode eink-theme cyberpunk-theme yaml-mode magit company)))
+    (markdown-mode+ cargo flycheck flycheck-mypy flycheck-rust racer rust-mode rustfmt gotham-theme leuven-theme zenburn-theme snakemake-mode material-theme markdown-mode eink-theme cyberpunk-theme yaml-mode magit company)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
