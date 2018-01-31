@@ -37,3 +37,4 @@ PERL_LOCAL_LIB_ROOT="/media/8TB_PLAYGROUND/home/ecl/perl5${PERL_LOCAL_LIB_ROOT:+
 PERL_MB_OPT="--install_base \"/media/8TB_PLAYGROUND/home/ecl/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/media/8TB_PLAYGROUND/home/ecl/perl5"; export PERL_MM_OPT;
 
+function revcomp { echo $1 | rev | tr ATGC TACG }

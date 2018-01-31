@@ -11,10 +11,6 @@
 (setq backup-directory-alist (quote ((".*" . "~/.emacs_backups/"))))
 (setq inhibit-startup-message t)
 
-;; Unnecessary UI --> gone
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
 ;; No tabs
 (setq tab-width 2
       indent-tabs-mode nil)
@@ -37,8 +33,8 @@
 ;;-----------------------------------------------------------------------;;
 (require 'package)
 ;; Add melpa repository to archives
-;; (add-to-list 'package-archives
-;; 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+ 	     '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives
 	     '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (when (< emacs-major-version 24)
@@ -126,7 +122,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (misterioso)))
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(custom-enabled-themes (quote (tsdh-dark)))
+ '(custom-safe-themes
+   (quote
+    ("05411251e1232959144334e4359f8af0931c6c1a2f3a109d0d9e6753b6dfecfe" default)))
+ '(hl-sexp-background-color "#efebe9")
  '(package-selected-packages (quote (magit company))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
