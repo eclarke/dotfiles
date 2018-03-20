@@ -38,3 +38,18 @@ PERL_MB_OPT="--install_base \"/media/8TB_PLAYGROUND/home/ecl/perl5\""; export PE
 PERL_MM_OPT="INSTALL_BASE=/media/8TB_PLAYGROUND/home/ecl/perl5"; export PERL_MM_OPT;
 
 function revcomp { echo $1 | rev | tr ATGC TACG }
+
+
+if (( $+commands[exa] )); then
+    alias ls=exa
+fi
+
+function proj {
+    shopt -s nullglob
+    cd ${HOME}/projects/${1}*
+}
+
+function mproj {
+    shopt -s nullglob
+    cd ${HOME}/projects/999_MiscProjects/${1}*
+}
